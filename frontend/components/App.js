@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import Card from './Card'
+import MarsPhoto from './MarsPhoto';
 
 const API_KEY = 'DEMO_KEY'
 // const URL = `http://localhost:9009/api/apod?api_key=${api_key}`
@@ -87,16 +88,14 @@ if (!pom) return "Loading..."
         date={apod.date}
       />
   </section>
-
+  
   {/* Mars Photo Section */}
   <section className='mars'>
-      <div>
-          <h1>{pom.rover.name}</h1>
-          <figure>
-            <img src={pom.img_src}/>
-            <figcaption>{pom.earth_date}</figcaption>
-          </figure>
-        </div>
+      <MarsPhoto
+      roverName={pom.rover.name}
+      imgSrc={pom.img_src}
+      earthDate={pom.earth_date}
+      />
   </section>
 
 </>
