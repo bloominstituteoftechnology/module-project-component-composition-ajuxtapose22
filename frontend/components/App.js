@@ -3,6 +3,7 @@ import axios from 'axios'
 import Card from './Card'
 import MarsPhoto from './MarsPhoto';
 
+
 const API_KEY = 'DEMO_KEY'
 // const URL = `http://localhost:9009/api/apod?api_key=${api_key}`
 const URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
@@ -15,6 +16,7 @@ const MARS = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?so
 function App() {
 const [apod, setApod] = useState(null)
 const [pom, setPom] = useState(null)
+
 
   useEffect(() => {
     function marsPhoto(){
