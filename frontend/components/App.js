@@ -26,7 +26,7 @@ const [pom, setPom] = useState(null)
         console.log(err.message)
       })
     }
-    marsPhoto()
+    // marsPhoto()
   }, []);
 
   useEffect(() => {
@@ -54,8 +54,20 @@ const [pom, setPom] = useState(null)
 
 
 
-
-
+  setPom({
+          "img_src": "http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01000/opgs/edr/fcam/FRB_486265257EDR_F0481570FHAZ00323M_.JPG",
+        "earth_date": "2015-05-30",
+        "rover": {
+          "id": 5,
+          "name": "Curiosity",
+          "landing_date": "2012-08-06",
+          "launch_date": "2011-11-26",
+          "status": "active",
+          "max_sol": 4102,
+          "max_date": "2024-02-19",
+          "total_photos": 695670,
+        }
+          })
 
 
 
@@ -63,15 +75,31 @@ const [pom, setPom] = useState(null)
 }, []);
 
 if (!apod) return "Fetching Photo of the Day..."
-  return (
- <section>
-  <Card 
-    title={apod.title}
-    text={apod.explanation}
-    imageURL={apod.url}
-    date={apod.date}
-  />
- </section>
+if (!pom) return "Loading..."
+
+   return (
+<>
+  <section className='apod'>
+      <Card 
+        title={apod.title}
+        text={apod.explanation}
+        imageURL={apod.url}
+        date={apod.date}
+      />
+  </section>
+
+  {/* Mars Photo Section */}
+  <section className='mars'>
+      <div>
+          <h1>{pom.rover.name}</h1>
+          <figure>
+            <img src={pom.img_src}/>
+            <figcaption>{pom.earth_date}</figcaption>
+          </figure>
+        </div>
+  </section>
+
+</>
   )
 }
 
