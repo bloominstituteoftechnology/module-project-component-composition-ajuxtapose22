@@ -34,3 +34,14 @@ header, footer {
   align-items: center;
   padding: 1rem;
 }
+
+
+figure {
+  margin: 2em;
+  border: #93005a;
+  border-width: 6px;
+}
+
+section {
+  margin: 6px;
+}
