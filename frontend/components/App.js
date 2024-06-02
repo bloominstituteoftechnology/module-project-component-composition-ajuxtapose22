@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import Card from './Card'
+import HighlightedText from './Highlight'
 
 
 const API_KEY = 'DEMO_KEY'
